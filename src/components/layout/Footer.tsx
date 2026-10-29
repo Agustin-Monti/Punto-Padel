@@ -175,7 +175,7 @@ export function Footer() {
 
           {/* Logo del developer */}
           <a
-            href="https://portfolio-personal3-7t9e27005-agustin-montis-projects.vercel.app/es" // 👈 reemplaza con tu link real
+            href="https://portfolio-personal3.vercel.app/es"
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 text-white/40 transition-opacity hover:opacity-100"
