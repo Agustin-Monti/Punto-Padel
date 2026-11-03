@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
-import { formatPrecio, getPrecioFinal, getDescuento, tieneStock } from '@/lib/utils'
+import { formatPrecio, getPrecioFinal, getDescuento, tieneStock, formatNivel, capitalizarTexto  } from '@/lib/utils'
 import { ProductGallery } from '@/components/product/ProductGallery'
 import { WhatsAppButton } from '@/components/product/WhatsAppButton'
 import { ProductSlider } from '@/components/product/ProductSlider'
@@ -77,20 +77,20 @@ export default async function ProductoPage({ params }: PageProps) {
     { label: 'Marca', value: producto.marcas?.nombre ?? null },
     { label: 'Categoría', value: producto.categorias?.nombre ?? null },
     { label: 'Tipo', value: producto.tipo_productos?.nombre ?? null },
-    { label: 'Color', value: producto.color },
-    { label: 'Forma', value: producto.forma },
-    { label: 'Balance', value: producto.balance },
-    { label: 'Marco', value: producto.marco },
-    { label: 'Núcleo', value: producto.nucleo },
-    { label: 'Acabado', value: producto.acabado },
-    { label: 'Potencia', value: producto.potencia },
-    { label: 'Control', value: producto.control },
+    { label: 'Color', value: capitalizarTexto(producto.color) },
+    { label: 'Forma', value: capitalizarTexto(producto.forma) },
+    { label: 'Balance', value: capitalizarTexto(producto.balance) },
+    { label: 'Marco', value: capitalizarTexto(producto.marco) },
+    { label: 'Núcleo', value: capitalizarTexto(producto.nucleo) },
+    { label: 'Acabado', value: capitalizarTexto(producto.acabado) },
+    { label: 'Potencia', value: formatNivel(producto.potencia) },
+    { label: 'Control', value: formatNivel(producto.control) },
     { label: 'Peso', value: producto.peso ? `${producto.peso} g` : null },
-    { label: 'Material', value: producto.material },
-    { label: 'Género', value: producto.genero },
-    { label: 'Modelo', value: producto.modelo },
-    { label: 'Origen', value: producto.origen },
-    { label: 'Medidas', value: producto.medidas },
+    { label: 'Material', value: capitalizarTexto(producto.material) },
+    { label: 'Género', value: capitalizarTexto(producto.genero) },
+    { label: 'Modelo', value: capitalizarTexto(producto.modelo) },
+    { label: 'Origen', value: capitalizarTexto(producto.origen) },
+    { label: 'Medidas', value: capitalizarTexto(producto.medidas) },
   ].filter((s) => s.value !== null && s.value !== undefined && s.value !== '')
 
   // Productos relacionados: misma categoría, excluyendo el actual
