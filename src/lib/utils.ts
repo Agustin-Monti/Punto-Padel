@@ -37,3 +37,26 @@ export function getDescuento(
 export function tieneStock(stock: number | null): boolean {
   return (stock ?? 0) > 0
 }
+
+// Formatea un valor de 0-10 como "8/10" (clampeado al máximo de 10)
+export function formatNivel(valor: number | null | undefined, max = 10): string | null {
+  if (valor === null || valor === undefined) return null
+  const clamped = Math.max(0, Math.min(max, valor))
+  return `${clamped}/${max}`
+}
+
+// Pone en mayúscula la primera letra de cada palabra (Title Case)
+// Ej: "rugoso" → "Rugoso", "goma eva" → "Goma Eva"
+export function capitalizarTexto(valor: string | null | undefined): string | null {
+  if (valor === null || valor === undefined) return null
+  const texto = String(valor).trim()
+  if (texto === '') return null
+
+  return texto
+    .toLowerCase()
+    .split(' ')
+    .map((palabra) =>
+      palabra.length > 0 ? palabra.charAt(0).toUpperCase() + palabra.slice(1) : palabra
+    )
+    .join(' ')
+}
