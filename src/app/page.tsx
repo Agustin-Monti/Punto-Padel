@@ -5,6 +5,7 @@ import { Hero } from '@/components/home/Hero'
 import { Categorias } from '@/components/home/Categorias'
 import { ProductSlider } from '@/components/product/ProductSlider'
 import { Nosotros } from '@/components/home/Nosotros'
+import { MarcasSlider } from '@/components/home/MarcasSlider'
 
 export const revalidate = 3600
 
@@ -23,10 +24,16 @@ export default async function HomePage() {
     <div>
       <Hero />
 
+      {/* Reemplaza la sección actual de categorías por esta */}
       <section className="mb-10 sm:mb-14">
-        <h2 className="mb-4 font-display text-xl font-bold text-ink-900 sm:mb-6 sm:text-2xl">
-          Categorías
-        </h2>
+        <div className="mb-6 sm:mb-8">
+          <h2 className="border-l-4 border-electric-600 pl-4 font-display text-2xl font-extrabold tracking-tight text-ink-900 sm:text-3xl">
+            Categorías
+          </h2>
+          <p className="mt-2 text-sm text-ink-500 sm:text-base">
+            Encontrá todo lo que necesitás para tu juego.
+          </p>
+        </div>
         <Categorias />
       </section>
 
@@ -48,6 +55,8 @@ export default async function HomePage() {
       )}
 
       <Nosotros />
+
+      <MarcasSlider />
     </div>
   )
 }
