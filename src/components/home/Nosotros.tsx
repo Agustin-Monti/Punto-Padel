@@ -6,11 +6,11 @@ import { InstagramIcon, FacebookIcon, TikTokIcon } from '@/components/icons/Soci
 export function Nosotros() {
   return (
     <section className="mb-10 sm:mb-14">
-      <div className="mb-6 text-center sm:mb-8">
-        <h2 className="font-display text-2xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">
+      <div className="mb-6 sm:mb-8">
+        <h2 className="border-l-4 border-electric-600 pl-4 font-display text-2xl font-extrabold tracking-tight text-ink-900 sm:text-3xl">
           Nuestra comunidad
         </h2>
-        <p className="mx-auto mt-2 max-w-2xl text-sm text-ink-500 sm:text-base">
+        <p className="mt-2 max-w-2xl text-sm text-ink-500 sm:text-base">
           Conectamos con nuestra comunidad a través de las redes sociales y compartimos nuestra pasión por el pádel.
         </p>
       </div>
